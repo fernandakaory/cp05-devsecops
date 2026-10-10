@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Executar Gitleaks
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Executar Semgrep
-        run: semgrep scan --config auto --error .
+        run: semgrep scan --config .semgrep.yml --error .
 
   # Analisa vulnerabilidades na imagem Docker
   trivy:
@@ -47,7 +47,7 @@ jobs:
         run: docker build -t arcanjosa:v1 .
 
       - name: Executar Trivy
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@0.36.0
         with:
           image-ref: arcanjosa:v1
           format: table

@@ -1,0 +1,9 @@
+
+rules:
+  - id: javascript-eval-inseguro
+    patterns:
+      - pattern: eval(...)
+    message: "Uso de eval() detectado: risco de execução de código não confiável."
+    languages:
+      - javascript
+    severity: ERROR
