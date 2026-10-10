@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint 04 - Containerização Arcanjo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: -0.3px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .team-member {
+            padding: 32px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+        }
+
+        .team-member:hover {
+            border-color: #e5e5e5;
+            background: #fcfcfc;
+        }
+
+        .team-member .emoji {
+            font-size: 2.5em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .team-member .name {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .team-member .rm {
+            font-size: 0.9em;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        .text-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .text-content p {
+            margin-bottom: 24px;
+        }
+
+        .text-content strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .concept-box {
+            background: #f9f9f9;
+            border-left: 2px solid #1a1a1a;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+
+        .concept-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .concept-desc {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .feature {
+            padding: 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .highlight-box {
+            background: #f0f0f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.95em;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        ol {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        ol li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 32px;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <h1>Checkpoint 04</h1>
+        <p>Containerização do Portal Arcanjo SA</p>
+    </header>
+
+    <div class="container">
+        <!-- Equipe -->
+        <section>
+            <h2>Equipe</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <span class="emoji">🍙</span>
+                    <div class="name">Fernanda Kaory Saito</div>
+                    <div class="rm">RM551104</div>
+                </div>
+                <div class="team-member">
+                    <span class="emoji">⚡</span>
+                    <div class="name">João Pedro Borsato Cruz</div>
+                    <div class="rm">RM550294</div>
+                </div>
+                <div class="team-member">
+                    <span class="emoji">💫</span>
+                    <div class="name">Maria Fernanda Vieira de Camargo</div>
+                    <div class="rm">RM97956</div>
+                </div>
+                <div class="team-member">
+                    <span class="emoji">🚀</span>
+                    <div class="name">Pedro Lucas de Andrade Nunes</div>
+                    <div class="rm">RM550366</div>
+                </div>
+                <div class="team-member">
+                    <span class="emoji">💥</span>
+                    <div class="name">Vinícius Bernardino de Souza</div>
+                    <div class="rm">RM97888</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missão -->
+        <section>
+            <h2>A Missão</h2>
+            <div class="text-content">
+                <p>
+                    A Arcanjo SA realizou a migração para cloud, mas cada desenvolvedor realiza o deploy de forma diferente. 
+                    O CTO definiu que <strong>toda nova aplicação deve rodar em container</strong>.
+                </p>
+                <p>
+                    Nossa tarefa é containerizar o portal da empresa e provar que funciona em qualquer lugar, 
+                    eliminando completamente as variações de ambiente. Para isso, precisamos entender como os containers 
+                    funcionam nos seus níveis mais fundamentais.
+                </p>
+            </div>
+        </section>
+
+        <!-- Cgroups -->
+        <section>
+            <h2>Cgroups — Control Groups</h2>
+            <div class="text-content">
+                <div class="concept-box">
+                    <div class="concept-title">O que são Cgroups?</div>
+                    <div class="concept-desc">
+                        Cgroups (Control Groups) são um recurso do kernel Linux que permitem limitar, contabilizar 
+                        e isolar o uso de recursos. Controlam quanto de CPU, memória, I/O e outros recursos 
+                        cada processo (ou container) pode consumir.
+                    </div>
+                </div>
+
+                <p style="margin-top: 32px;">
+                    Os cgroups funcionam através de diferentes subsistemas, cada um responsável por um tipo de recurso:
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-title">CPU</div>
+                        <div class="feature-desc">Limita uso de processador</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Memória</div>
+                        <div class="feature-desc">Controla RAM e swap</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">I/O</div>
+                        <div class="feature-desc">Gerencia acesso a disco</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Devices</div>
+                        <div class="feature-desc">Controla acesso a dispositivos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">PIDs</div>
+                        <div class="feature-desc">Limita número de processos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Freezer</div>
+                        <div class="feature-desc">Pausa/retoma processos</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    Um container pode estar limitado a usar apenas 512MB de RAM e 50% de CPU, 
+                    impedindo que consuma todos os recursos da máquina e prejudique outros containers.
+                </div>
+            </div>
+        </section>
+
+        <!-- Namespaces -->
+        <section>
+            <h2>Namespaces — Isolamento de Recursos</h2>
+            <div class="text-content">
+                <div class="concept-box">
+                    <div class="concept-title">O que são Namespaces?</div>
+                    <div class="concept-desc">
+                        Namespaces são um recurso do kernel Linux que fornece isolamento lógico de recursos do sistema. 
+                        Cada namespace cria uma "visão" independente, fazendo com que os processos dentro dele 
+                        só vejam o que está naquele namespace específico.
+                    </div>
+                </div>
+
+                <p style="margin-top: 32px;">
+                    Docker utiliza diversos tipos de namespaces para isolamento completo:
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-title">PID</div>
+                        <div class="feature-desc">Isola árvore de processos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Network</div>
+                        <div class="feature-desc">Isola rede e portas</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Mount</div>
+                        <div class="feature-desc">Isola sistema de arquivos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">UTS</div>
+                        <div class="feature-desc">Isola hostname</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">IPC</div>
+                        <div class="feature-desc">Isola comunicação entre processos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">User</div>
+                        <div class="feature-desc">Mapeia usuários isoladamente</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    Um container com seu próprio namespace de arquivos só enxerga seus arquivos, 
+                    não vendo os do host ou de outros containers. É como ter um sistema completamente separado.
+                </div>
+            </div>
+        </section>
+
+        <!-- Juntos -->
+        <section>
+            <h2>Cgroups + Namespaces = Containers</h2>
+            <div class="text-content">
+                <p>
+                    <strong>Namespaces</strong> criam o isolamento lógico (o container acha que é o único sistema), 
+                    enquanto <strong>Cgroups</strong> aplicam limites de recursos (quanto o container pode usar).
+                </p>
+
+                <p style="margin-top: 24px;">
+                    Quando você executa um container Docker, acontece o seguinte:
+                </p>
+
+                <ol>
+                    <li>O Docker cria namespaces para isolar o container do host</li>
+                    <li>O Docker configura cgroups para limitar recursos disponíveis</li>
+                    <li>O container inicia dentro desses namespaces com esses limites aplicados</li>
+                    <li>O resultado é um ambiente isolado e previsível que roda em qualquer lugar</li>
+                </ol>
+
+                <div class="highlight-box" style="margin-top: 32px;">
+                    <strong>Resultado final:</strong> Um container pode rodar identicamente no laptop do desenvolvedor, 
+                    na máquina de testes e na produção em cloud, sem precisar de ajustes.
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="container">
+        <p>
+            Checkpoint 04 — Containerização do Portal Arcanjo SA<br>
+            <strong>Equipe:</strong> Fernanda Kaory Saito, João Pedro Borsato Cruz, Maria Fernanda Vieira de Camargo, 
+            Pedro Lucas de Andrade Nunes, Vinícius Bernardino de Souza
+        </p>
+    </footer>
+</body>
+</html>
