@@ -93,10 +93,6 @@ Os testes foram realizados em branches específicas, sem incorporar os arquivos 
 
 A documentação do checkpoint reúne capturas da criação da imagem e do container, execução do portal em `localhost:8080`, configuração do workflow e resultados dos testes realizados no GitHub Actions, com explicações sobre os riscos identificados.
 
-## Considerações finais
-
-A atividade demonstra o conceito de **Shift Left**, incorporando verificações de segurança ao processo de desenvolvimento. Os testes comprovaram que o pipeline consegue detectar credenciais expostas, apontar código potencialmente inseguro e impedir a aprovação de imagens com vulnerabilidades críticas detectadas, de acordo com as regras configuradas.
-
 ## Equipe
 
 - Fernanda Kaory Saito — RM 551104
@@ -104,5 +100,3 @@ A atividade demonstra o conceito de **Shift Left**, incorporando verificações 
 - Maria Fernanda Camargo — RM 97956
 - Pedro Lucas Nunes — RM 550366
 - Vinicius Bernardino — RM 97888
-
-**FIAP — Engenharia de Software | 2026**
