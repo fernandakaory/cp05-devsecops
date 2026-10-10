@@ -47,7 +47,7 @@ jobs:
         run: docker build -t arcanjosa:v1 .
 
       - name: Executar Trivy
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: arcanjosa:v1
           format: table
