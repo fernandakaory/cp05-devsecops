@@ -1,0 +1,55 @@
+
+name: Security Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  # Verifica se existem credenciais expostas no repositório
+  gitleaks:
+    name: Gitleaks - Secret Scanning
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Executar Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Analisa o código-fonte em busca de vulnerabilidades
+  semgrep:
+    name: Semgrep - SAST
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Executar Semgrep
+        run: semgrep scan --config auto --error .
+
+  # Analisa vulnerabilidades na imagem Docker
+  trivy:
+    name: Trivy - Container Security
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Construir imagem Docker
+        run: docker build -t arcanjosa:v1 .
+
+      - name: Executar Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: arcanjosa:v1
+          format: table
+          severity: CRITICAL
+          exit-code: '1'
